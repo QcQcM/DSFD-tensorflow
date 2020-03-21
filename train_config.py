@@ -19,8 +19,8 @@ config.TRAIN.log_interval = 10
 config.TRAIN.epoch = 2000                      ###just keep training , evaluation shoule be take care by yourself,
                                                ### generally 10,0000 iters is enough
 
-config.TRAIN.train_set_size=13000              ###widerface train size
-config.TRAIN.val_set_size=3000                 ###widerface val size
+config.TRAIN.train_set_size=5092              ###widerface train size
+config.TRAIN.val_set_size=1275                 ###widerface val size
 
 config.TRAIN.iter_num_per_epoch = config.TRAIN.train_set_size // config.TRAIN.num_gpu // config.TRAIN.batch_size
 config.TRAIN.val_iter=config.TRAIN.val_set_size// config.TRAIN.num_gpu // config.TRAIN.batch_size
@@ -29,7 +29,7 @@ config.TRAIN.lr_value_every_step = [0.00001,0.0001,0.0005,0.0001,0.00001,0.00000
 config.TRAIN.lr_decay_every_step = [500,1000,60000,80000,100000]
 
 config.TRAIN.weight_decay_factor = 5.e-4                  ##l2 regular
-config.TRAIN.vis=False                                    ##check data flag
+config.TRAIN.vis=True                                    ##check data flag
 
 config.TRAIN.norm='BN'    ##'GN' OR 'BN'
 config.TRAIN.lock_basenet_bn=False
@@ -43,8 +43,8 @@ config.TEST.max_detect = 1500
 
 config.DATA = edict()
 config.DATA.root_path=''
-config.DATA.train_txt_path='train.txt'
-config.DATA.val_txt_path='val.txt'
+config.DATA.train_txt_path='mask_train.txt'
+config.DATA.val_txt_path='mask_val.txt'
 config.DATA.num_category=1                                  ###face 1  voc 20 coco 80
 config.DATA.num_class = config.DATA.num_category + 1        # +1 background
 
