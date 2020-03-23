@@ -46,6 +46,7 @@ def get_data():
                 fw.write(line+'\n')
             else:
                 fw1.write(line+'\n')
+            index += 1
 
 
 
