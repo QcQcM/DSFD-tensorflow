@@ -10,12 +10,14 @@ from __future__ import print_function
 import os
 import xml.etree.ElementTree as ET
 
-MASK_ROOT = './mask'
+MASK_ROOT = '../drive/My Drive/face_dectect'
 
 
 def get_data():
     dir_datanames = os.listdir(MASK_ROOT)
     fw = open('mask_train.txt', 'w')
+    fw1 = open('mask_val.txt', 'w')
+    index = 0
     for dataname in dir_datanames:
         prefix, suffix = os.path.splitext(dataname)
         if suffix == '.xml':
@@ -40,7 +42,10 @@ def get_data():
                         line += '2'
                 if n != node[-1]:
                     line += ','
-            fw.write(line+'\n')
+            if index <= 5092:
+                fw.write(line+'\n')
+            else:
+                fw1.write(line+'\n')
 
 
 
